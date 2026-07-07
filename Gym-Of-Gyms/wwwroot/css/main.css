@@ -70,7 +70,9 @@ a, a:visited, a:focus, a:hover, a:active {
     }
 
 td {
-    width: 70%;
+    width: 50%;
     height: 70%;
     text-align: left;
+    table-layout: fixed;
+    width: 500px;
 }
