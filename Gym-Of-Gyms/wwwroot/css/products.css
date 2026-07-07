@@ -1,0 +1,11 @@
+﻿.panel {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/Imagies/Alexandr Nevskyi.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

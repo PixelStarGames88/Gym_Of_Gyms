@@ -6,6 +6,7 @@
 </head>
 <h1>Gym of Gyms</h1>
 <h3>Зарегестрируйся! Закупись протеином! Накачайся! Стань как Арнольд Шварцнегр!</h3>
+<form asp-controller="UserGym" asp-action="CreateAccount" method="post">
 <table>
     <tr>
         <td>Введи имя</td>
@@ -25,11 +26,11 @@
     </tr>
     <tr>
         <td>Введи отчество</td>
-        <td>Повтори пароль пароль</td>
+        <td>Повтори пароль</td>
     </tr>
     <tr>
-        <td><input type="text" class="styled-input" name="father" /></td>
-        <td><input type="password" class="styled-input" name="password" /></td>
+        <td><input type="text" class="styled-input" name="fatherName" /></td>
+        <td><input type="password" class="styled-input" name="confirmPassword" /></td>
     </tr>
     <tr>
         <td>Введи свой рост</td>
@@ -41,9 +42,11 @@
     </tr>
 </table>
 
-<button class="btn-custom" onclick="toggleMessage()">
-    Зарегистрироваться
-</button>
+    <button type="submit" class="btn-custom">
+        Зарегистрироваться
+    </button>
+</form>
+
 <p>
     <a asp-controller="Home" asp-action="Autorisation">
         Кажется.. Я вспомнил пароль...
