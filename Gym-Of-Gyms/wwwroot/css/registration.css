@@ -1,0 +1,29 @@
+﻿.container {
+    font-size: 18px;
+    font-family: 'Impact';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.panel {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30%;
+    height: 100vh;
+    background-image: url('/Imagies/Arnold Scharznegger BW.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+input {
+    width: 80%;
+    padding: 7px 12px;
+}
