@@ -6,21 +6,23 @@
 </head>
 <h1>Gym of Gyms</h1>
 <h2>Добро пожаловать!</h2>
-<p>
-    Введи логин
-</p>
-<p>
-    <input type="text" class="styled-input" name="login" />
-</p>
-<p>
-    Введи пароль
-</p>
-<p>
-    <input type="password" class="styled-input" name="password" />
-</p>
-<button class="btn-custom" onclick="toggleMessage()">
-    Авторизироваться
-</button>
+<form asp-controller="UserGym" asp-action="EnterToAccount" method="post">
+    <p>
+        Введи логин
+    </p>
+    <p>
+        <input type="text" class="styled-input" name="login" />
+    </p>
+    <p>
+        Введи пароль
+    </p>
+    <p>
+        <input type="password" class="styled-input" name="password" />
+    </p>
+    <button class="btn-custom" onclick="toggleMessage()">
+        Авторизироваться
+    </button>
+</form>
 <p>
     <a asp-controller="Home" asp-action="Registration">
         В первый раз? Зарегестрируйся.

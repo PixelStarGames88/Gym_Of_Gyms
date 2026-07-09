@@ -18,4 +18,18 @@ public class UserGymController : Controller
             return RedirectToAction("Registration", "Home");
         }
     }
+    [HttpPost]
+    public async Task<IActionResult> EnterToAccount(string login, string password)
+    {
+        var dataBaseConnector = new Models.DataBaseConnector.DataBaseConnector(HttpContext.RequestServices.GetService<IConfiguration>() ?? throw new NullReferenceException());
+        var userGym = await dataBaseConnector.EnterToAccount(login, password);
+        if (userGym != null)
+        {
+            return RedirectToAction("ProductLine", "Home");
+        }
+        else
+        {
+            return RedirectToAction("Autorisation", "Home");
+        }
+    }
 }

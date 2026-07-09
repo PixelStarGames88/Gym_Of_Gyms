@@ -42,4 +42,17 @@ public class DataBaseConnector
             return null;
         }
     }
+    public async Task<UserGymModel?> EnterToAccount(string login, string password)
+    {
+        try
+        {
+            GetConnection();
+            var UserGyms = await supabase.From<UserGymModel>().Where(x => x.Login == login && x.Password == password).Get();
+            return UserGyms.Models.FirstOrDefault();
+        }
+        catch
+        {
+            return null;
+        }
+    }
 }
