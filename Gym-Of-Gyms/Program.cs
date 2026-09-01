@@ -18,6 +18,9 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+app.UseExceptionHandler("/Home/Error");
+app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -25,8 +28,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Autorisation}/{id?}");
+    pattern: "{controller=Home}/{action=ProductLine}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

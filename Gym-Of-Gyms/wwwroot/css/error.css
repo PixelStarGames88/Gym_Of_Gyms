@@ -1,0 +1,36 @@
+﻿.panel-right {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 20%;
+    height: 100vh;
+    background-image: url('/Imagies/Billi Herington.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.panel-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20%;
+    height: 100vh;
+    background-image: url('/Imagies/Billi Herington II.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    font-size: 24px;
+    font-family: 'Impact';
+    left: 20%;
+    top: 0px;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 0px;
+}
