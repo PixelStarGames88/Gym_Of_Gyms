@@ -39,7 +39,7 @@ public class UserGymController : Controller
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
-            return RedirectToAction("ProductLine", "Home");
+            return RedirectToAction("UserBody", "Home");
         }
         else
         {
@@ -62,7 +62,7 @@ public class UserGymController : Controller
 
         if (result.Succeeded)
         {
-            return RedirectToAction("ProductLine", "Home");
+            return RedirectToAction("UserBody", "Home");
         }
         else
         {

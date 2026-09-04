@@ -1,54 +1,59 @@
 ﻿@{
     ViewData["Title"] = "Регистрация";
 }
-<head>
-    <link rel="stylesheet" href="~/css/registration.css" />
-</head>
-<h1>Gym of Gyms</h1>
-<h3>Зарегестрируйся! Закупись протеином! Накачайся! Стань как Арнольд Шварцнегр!</h3>
-<form asp-controller="UserGym" asp-action="CreateAccount" method="post">
-<table>
-    <tr>
-        <td>Введи имя</td>
-        <td>Введи логин</td>
-    </tr>
-    <tr>
-        <td> <input type="text" class="styled-input" name="firstName" /></td>
-        <td><input type="text" class="styled-input" name="login" /></td>
-    </tr>
-    <tr>
-        <td>Введи фамилию</td>
-        <td>Введи пароль</td>
-    </tr>
-    <tr>
-        <td><input type="text" class="styled-input" name="lastName" /></td>
-        <td><input type="password" class="styled-input" name="password" /></td>
-    </tr>
-    <tr>
-        <td>Введи отчество</td>
-        <td>Повтори пароль</td>
-    </tr>
-    <tr>
-        <td><input type="text" class="styled-input" name="fatherName" /></td>
-        <td><input type="password" class="styled-input" name="confirmPassword" /></td>
-    </tr>
-    <tr>
-        <td>Введи свой рост</td>
-        <td>Введи свой вес</td>
-    </tr>
-    <tr>
-        <td><input type="text" class="styled-input" name="height" /></td>
-        <td><input type="text" class="styled-input" name="weight" /></td>
-    </tr>
-</table>
 
-    <button type="submit" class="btn-custom">
-        Зарегистрироваться
-    </button>
-</form>
+<div class="page-split">
+    <div class="bg-panel panel-registration"></div>
 
-<p>
-    <a asp-controller="Home" asp-action="Autorisation">
-        Кажется.. Я вспомнил пароль...
-    </a>
-</p>
+    <div class="container-main right-side">
+        <h1>Gym of Gyms</h1>
+        <h3>Зарегестрируйся! Закупись протеином! Накачайся! Стань как Арнольд Шварцнегр!</h3>
+
+        <form asp-controller="UserGym" asp-action="CreateAccount" method="post">
+            <table class="form-table">
+                <tr>
+                    <td><label for="firstName">Введи имя</label></td>
+                    <td><label for="login">Введи логин</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="firstName" class="styled-input" name="firstName" /></td>
+                    <td><input type="text" id="login" class="styled-input" name="login" /></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Введи фамилию</label></td>
+                    <td><label for="password">Введи пароль</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="lastName" class="styled-input" name="lastName" /></td>
+                    <td><input type="password" id="password" class="styled-input" name="password" /></td>
+                </tr>
+                <tr>
+                    <td><label for="fatherName">Введи отчество</label></td>
+                    <td><label for="confirmPassword">Повтори пароль</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="fatherName" class="styled-input" name="fatherName" /></td>
+                    <td><input type="password" id="confirmPassword" class="styled-input" name="confirmPassword" /></td>
+                </tr>
+                <tr>
+                    <td><label for="height">Введи свой рост</label></td>
+                    <td><label for="weight">Введи свой вес</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="height" class="styled-input" name="height" /></td>
+                    <td><input type="text" id="weight" class="styled-input" name="weight" /></td>
+                </tr>
+            </table>
+
+            <button type="submit" class="btn-custom">
+                Зарегистрироваться
+            </button>
+        </form>
+
+        <p>
+            <a asp-controller="Home" asp-action="Autorisation">
+                Кажется.. Я вспомнил пароль...
+            </a>
+        </p>
+    </div>
+</div>

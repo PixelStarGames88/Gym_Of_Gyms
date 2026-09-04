@@ -18,6 +18,11 @@ public class HomeController : Controller
     {
         return View();
     }
+    [Authorize]
+    public IActionResult UserBody()
+    {
+        return View();
+    }
     [AllowAnonymous]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(int? id = null)
