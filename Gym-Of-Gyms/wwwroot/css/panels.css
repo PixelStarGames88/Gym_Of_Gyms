@@ -1,0 +1,47 @@
+﻿.bg-panel {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+    .bg-panel.panel-autorisation {
+        right: 0;
+        width: 60%;
+        background-image: url('/images/gym-of-gyms-enter-image.png');
+    }
+
+    .bg-panel.panel-registration {
+        left: 0;
+        width: 30%;
+        background-image: url('/images/arnold-scharznegger-BW.png');
+    }
+
+    .bg-panel.panel-error-left {
+        left: 0;
+        width: 20%;
+        background-image: url('/images/billi-herington-ii.png');
+    }
+
+    .bg-panel.panel-error-right {
+        right: 0;
+        width: 20%;
+        background-image: url('/Images/Billi-Herington.png');
+    }
+   
+    .bg-panel.panel-diary-work-left {
+        left: 0;
+        width: 20%;
+        background-image: url('/images/steve-reeves-work.jpg');
+    }
+
+    .bg-panel.panel-diary-work-right {
+        right: 0;
+        width: 20%;
+        background-image: url('/Images/franco-columbu-work.jpg');
+    }

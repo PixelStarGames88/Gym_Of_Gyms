@@ -13,11 +13,6 @@ public class HomeController : Controller
     {
         return View();
     }
-    //[Authorize]
-    public IActionResult ProductLine()
-    {
-        return View();
-    }
     [Authorize]
     public IActionResult UserBody()
     {

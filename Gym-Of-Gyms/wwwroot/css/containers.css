@@ -1,0 +1,52 @@
+﻿.page-split {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container-main {
+    font-size: 24px;
+    font-family: 'Impact', sans-serif;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 10;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .container-main::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .container-main::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .container-main::-webkit-scrollbar-thumb {
+        background: #000000;
+        border-radius: 0px;
+    }
+
+        .container-main::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }
+
+    .container-main.left-side {
+        left: 0;
+        width: 40%;
+    }
+
+    .container-main.right-side {
+        right: 0;
+        width: 70%;
+    }
+
+    .container-main.center-wide {
+        left: 20%;
+        width: 60%;
+        box-shadow: none;
+    }

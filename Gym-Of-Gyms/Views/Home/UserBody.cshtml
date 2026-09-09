@@ -3,152 +3,21 @@
 }
 
 <div class="page-split">
+    <div class="bg-panel panel-diary-work-left"></div>
+
     <div class="container-main center-wide">
-        <h1>Дневник тренировок.</h1>
-        <h2 id="currentDate"></h2>
-
-        <div id="exercisesList"></div>
-
-        <button type="button" class="btn-custom" onclick="addExercise()">
-            + Добавить упражнение
-        </button>
+        <h1 style="text-align: center;">Дневник тренировок.</h1>
+        <div class="exercise-container">
+            <div class="date-navigator">
+                <button type="button" class="btn-custom">Вчера</button>
+                <h2 id="currentDate"></h2>
+                <button type="button" class="btn-custom">Завтра</button>
+            </div>
+        </div>
+        <button type="button" class="btn-custom" onclick="addExercise()">Добавить упражнение</button>
     </div>
+
+    <div class="bg-panel panel-diary-work-right"></div>
 </div>
 
-<script>
-    // --- Текущая дата ---
-    (function() {
-        const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда',
-            'Четверг', 'Пятница', 'Суббота'];
-        const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
-            'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-        const now = new Date();
-        document.getElementById('currentDate').textContent =
-            `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()} г.`;
-    })();
-
-    let exerciseCounter = 0;
-
-    // --- Добавить упражнение ---
-    function addExercise() {
-        exerciseCounter++;
-        const id = exerciseCounter;
-        const list = document.getElementById('exercisesList');
-
-        const card = document.createElement('div');
-        card.className = 'exercise-card';
-        card.id = `exercise-${id}`;
-        card.innerHTML = `
-            <div class="exercise-header" onclick="toggleSets(${id})">
-                <input type="text"
-                       class="exercise-title styled-input"
-                       placeholder="Введи сюда название упражнения."
-                       onclick="event.stopPropagation()" />
-                <div class="exercise-info">
-                    <span class="exercise-time" id="exerciseTime-${id}"></span>
-                    <span class="sets-count" id="setsCount-${id}">Подходов: 0</span>
-                    <span class="toggle-icon" id="toggleIcon-${id}">▼</span>
-                </div>
-            </div>
-            <div class="sets-container" id="setsContainer-${id}">
-                <table class="form-table sets-table">
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Повторения</th>
-                            <th>Вес (кг)</th>
-                            <th>Начало</th>
-                            <th>Конец</th>
-                            <th style="width: 40px;"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="setsBody-${id}"></tbody>
-                </table>
-                <div class="exercise-actions">
-                    <button type="button" class="btn-custom" onclick="addSet(${id})">
-                        + Подход
-                    </button>
-                        <button type="button" class="btn-custom" onclick="deleteExercise(${id})">
-                        Удалить упражнение
-                    </button>
-                </div>
-            </div>
-        `;
-        list.appendChild(card);
-        addSet(id);
-    }
-
-    function addSet(exerciseId) {
-        const tbody = document.getElementById(`setsBody-${exerciseId}`);
-        const num = tbody.rows.length + 1;
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="set-number">${num}</td>
-            <td><input type="number" class="styled-input" min="0" placeholder="0" onchange="updateExerciseTime(${exerciseId})" /></td>
-            <td><input type="number" class="styled-input" min="0" step="0.5" placeholder="0" onchange="updateExerciseTime(${exerciseId})" /></td>
-            <td><input type="time" class="styled-input time-input" onchange="updateExerciseTime(${exerciseId})" /></td>
-            <td><input type="time" class="styled-input time-input" onchange="updateExerciseTime(${exerciseId})" /></td>
-            <td><button type="button" class="btn-custom" onclick="deleteSet(${exerciseId}, this)" title="Удалить подход">×</button></td>
-        `;
-        tbody.appendChild(row);
-        updateSetsCount(exerciseId);
-        updateExerciseTime(exerciseId);
-    }
-
-    function deleteSet(exerciseId, btn) {
-        const row = btn.closest('tr');
-        row.remove();
-        renumberSets(exerciseId);
-        updateSetsCount(exerciseId);
-        updateExerciseTime(exerciseId);
-    }
-
-    function deleteExercise(id) {
-        const card = document.getElementById(`exercise-${id}`);
-        if (confirm('Удалить это упражнение?')) {
-            card.remove();
-        }
-    }
-
-    function renumberSets(exerciseId) {
-        const tbody = document.getElementById(`setsBody-${exerciseId}`);
-        const rows = tbody.querySelectorAll('tr');
-        rows.forEach((row, index) => {
-            row.querySelector('.set-number').textContent = index + 1;
-        });
-    }
-
-    function updateExerciseTime(exerciseId) {
-        const tbody = document.getElementById(`setsBody-${exerciseId}`);
-        const rows = tbody.querySelectorAll('tr');
-
-        let minStart = null;
-        let maxEnd = null;
-
-        rows.forEach(row => {
-            const inputs = row.querySelectorAll('input[type="time"]');
-            const startTime = inputs[0].value;
-            const endTime = inputs[1].value;
-
-            if (startTime) {
-                if (!minStart || startTime < minStart) {
-                    minStart = startTime;
-                }
-            }
-
-            if (endTime) {
-                if (!maxEnd || endTime > maxEnd) {
-                    maxEnd = endTime;
-                }
-            }
-        });
-
-        const timeDisplay = document.getElementById(`exerciseTime-${exerciseId}`);
-        if (minStart && maxEnd) {
-            timeDisplay.textContent = `${minStart} - ${maxEnd}`;
-            timeDisplay.classList.add('visible');
-        } else {
-            timeDisplay.classList.remove('visible');
-        }
-    }
-</script>
+<script src="~/js/workout-diary.js"></script>
