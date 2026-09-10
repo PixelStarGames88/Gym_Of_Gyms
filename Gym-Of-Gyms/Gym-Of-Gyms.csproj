@@ -12,7 +12,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="wwwroot\Images\Gym-Of-Gyms-Enter-Image.png">
+    <None Include="wwwroot\Images\gym-of-gyms-enter-image.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

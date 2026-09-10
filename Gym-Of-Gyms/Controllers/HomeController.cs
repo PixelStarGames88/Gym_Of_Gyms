@@ -5,16 +5,24 @@ namespace Gym_Of_Gyms.Controllers;
 
 public class HomeController : Controller
 {
+    [AllowAnonymous]
     public IActionResult Autorisation()
     {
         return View();
     }
+    [AllowAnonymous]
     public IActionResult Registration()
     {
         return View();
     }
+
     [Authorize]
-    public IActionResult UserBody()
+    public IActionResult Workouts()
+    {
+        return View();
+    }
+    [Authorize]
+    public IActionResult Food()
     {
         return View();
     }

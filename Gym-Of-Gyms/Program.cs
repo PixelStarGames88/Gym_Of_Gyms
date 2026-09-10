@@ -12,9 +12,14 @@ builder.Services.AddDefaultIdentity<ApplicationUser>
     (options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddRazorPages();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Home/Autorisation";
+    options.LogoutPath = "/Identity/Account/Logout";
+});
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -28,10 +33,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=UserBody}/{id?}");
+    pattern: "{controller=Home}/{action=Workouts}/");
 
 app.MapRazorPages();
 

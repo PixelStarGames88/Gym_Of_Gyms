@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Дневник питания";
+}
+
+<div class="page-split">
+    <div class="bg-panel panel-diary-food-left"></div>
+
+    <div class="container-main center-wide">
+        <h1 style="text-align: center;">Дневник питания.</h1>
+        <div class="exercise-container">
+            <div class="date-navigator">
+                <button type="button" class="btn-custom">Вчера</button>
+                <h2 id="currentDate"></h2>
+                <button type="button" class="btn-custom">Завтра</button>
+            </div>
+        </div>
+
+        <button type="button" class="btn-custom">Добавить прием пищи</button>
+    </div>
+
+   
+
+    <div class="bg-panel panel-diary-food-right"></div>
+</div>
+
+<script src="~/js/workout-diary.js"></script>

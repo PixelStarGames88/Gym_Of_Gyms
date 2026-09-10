@@ -43,5 +43,17 @@
     .bg-panel.panel-diary-work-right {
         right: 0;
         width: 20%;
-        background-image: url('/Images/franco-columbu-work.jpg');
+        background-image: url('/images/franco-columbu-work.jpg');
+    }
+
+    .bg-panel.panel-diary-food-left {
+        left: 0;
+        width: 20%;
+        background-image: url('/images/arnold-drink-protein.jpg');
+    }
+
+    .bg-panel.panel-diary-food-right {
+        right: 0;
+        width: 20%;
+        background-image: url('/images/arnold-eat-burgers.jpg');
     }
