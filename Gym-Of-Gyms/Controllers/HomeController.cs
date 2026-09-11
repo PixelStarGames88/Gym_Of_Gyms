@@ -17,12 +17,14 @@ public class HomeController : Controller
     }
 
     [Authorize]
-    public IActionResult Workouts()
+    [HttpGet("Home/{username}/Workouts")]
+    public IActionResult Workouts(string username)
     {
         return View();
     }
     [Authorize]
-    public IActionResult Food()
+    [HttpGet("Home/{username}/Food")]
+    public IActionResult Food(string username)
     {
         return View();
     }

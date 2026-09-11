@@ -35,7 +35,12 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Workouts}/");
+    pattern: "Home/{username}/Workout",
+    defaults: new { controller = "Home", action = "Workout" });
+
+app.MapControllerRoute(
+    name: "login",
+    pattern: "{controller=Home}/{action=Autorisation}/{id?}");
 
 app.MapRazorPages();
 
