@@ -1,0 +1,19 @@
+gym-ov-gyms/autorisation
+gym-ov-gyms/registration
+
+gym-ov-gyms/error
+
+gym-ov-gyms/user
+gym-ov-gyms/user/preference
+
+gym-ov-gyms/user/analyzis
+
+gym-ov-gyms/user/food  -->  gym-ov-gyms/user/food/today
+gym-ov-gyms/user/food/list-food
+gym-ov-gyms/user/food/add-food
+gym-ov-gyms/user/food/id-food
+
+gym-ov-gyms/user/workouts  -->  gym-ov-gyms/user/workouts/today
+gym-ov-gyms/user/workouts/exersizes
+gym-ov-gyms/user/workouts/exersizes/add-ex
+gym-ov-gyms/user/workouts/exersizes/id-ex
