@@ -55,6 +55,5 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
         modelBuilder.Entity<Record_Food>().HasOne(o => o.Eating).WithMany()
             .HasForeignKey(o => o.Eating_Id).OnDelete(DeleteBehavior.Cascade);
-
     }
 }

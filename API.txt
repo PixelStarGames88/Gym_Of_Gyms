@@ -8,10 +8,10 @@ gym-ov-gyms/user/preference
 
 gym-ov-gyms/user/analyzis
 
-gym-ov-gyms/user/food  -->  gym-ov-gyms/user/food/today
-gym-ov-gyms/user/food/list-food
-gym-ov-gyms/user/food/add-food
-gym-ov-gyms/user/food/id-food
+gym-ov-gyms/user/eating  -->  gym-ov-gyms/user/eating/today
+gym-ov-gyms/user/eating/food-list
+gym-ov-gyms/user/eating/food-add
+gym-ov-gyms/user/eating/food-id
 
 gym-ov-gyms/user/workouts  -->  gym-ov-gyms/user/workouts/today
 gym-ov-gyms/user/workouts/exersizes

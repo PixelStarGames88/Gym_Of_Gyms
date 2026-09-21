@@ -22,6 +22,12 @@
         background-image: url('/images/arnold-scharznegger-BW.png');
     }
 
+    .bg-panel.panel-food-registration {
+        left: 0;
+        width: 30%;
+        background-image: url('/images/arnold-scharznegger-cook-burgers.png');
+    }
+
     .bg-panel.panel-error-left {
         left: 0;
         width: 20%;

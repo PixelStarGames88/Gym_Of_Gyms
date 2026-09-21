@@ -81,4 +81,25 @@ body {
             transform: scale(0.98);
         }
 
+.btn-custom-center {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    font-family: 'Impact', sans-serif;
+    padding: 14px 28px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto;
+}
 
+    .btn-custom-center:hover {
+        background-color: #333333;
+    }
+
+    .btn-custom-center:active {
+        transform: scale(0.98);
+    }
