@@ -6,7 +6,7 @@ public class Set_Record
     public TimeOnly Start_Time { get; set; }
     public TimeOnly End_Time { get; set; }
     public int Repetitions { get; set; }
-    public double? Weight { get; set; }
+    public decimal? Weight { get; set; }
     public int Exercise_Record_Id { get; set; }
     public int Exercise_Id { get; set; }
     public Exercise_Record Exercise_Record { get; set; } = null!;

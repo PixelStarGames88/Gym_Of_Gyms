@@ -50,3 +50,35 @@
         width: 60%;
         box-shadow: none;
     }
+
+.container-list {
+    font-size: 24px;
+    font-family: 'Impact', sans-serif;
+    top: 0;
+    flex: 1;
+    height: 75%;
+    width: 100%;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 10;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .container-list::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .container-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .container-list::-webkit-scrollbar-thumb {
+        background: #000000;
+        border-radius: 0px;
+    }
+
+        .container-list::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }

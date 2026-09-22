@@ -91,9 +91,12 @@ body {
     border-radius: 0;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    text-align: center;
 }
 
     .btn-custom-center:hover {
@@ -103,3 +106,7 @@ body {
     .btn-custom-center:active {
         transform: scale(0.98);
     }
+
+.btn-custom-center {
+    margin-top: 10px;
+}

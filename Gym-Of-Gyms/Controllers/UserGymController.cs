@@ -16,7 +16,7 @@ public class UserGymController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAccount(string login, string password, string confirmPassword, string firstName, string lastName, string fatherName, double weight, double height)
+    public async Task<IActionResult> CreateAccount(string login, string password, string confirmPassword, string firstName, string lastName, string fatherName, decimal weight, decimal height)
     {
         if (password != confirmPassword)
         {

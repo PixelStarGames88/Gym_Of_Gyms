@@ -7,7 +7,7 @@ public class ApplicationUser : IdentityUser
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public string? FatherName { get; set; }
-    public double Weight { get; set; }
-    public double Height { get; set; }
+    public decimal Weight { get; set; }
+    public decimal Height { get; set; }
     public DateOnly BirthDay { get; set; }
 }

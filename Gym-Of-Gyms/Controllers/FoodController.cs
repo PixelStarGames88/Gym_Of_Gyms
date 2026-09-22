@@ -14,15 +14,28 @@ public class FoodController : Controller
     }
     [Authorize]
     [HttpPost("home/{username}/eating/food-add")]
-    public async Task<IActionResult> CreateFood(string username, string foodName, double calories, double mass, double protein, double fat, double carbohydrates)
+    public async Task<IActionResult> CreateFood(string username, string foodName, string calories, string mass, string protein, string fat, string carbohydrates)
     {
+        decimal caloriesNumber, massNumber, proteinNumber, fatNumber, carbohydratesNumber;
+
+        if(string.IsNullOrEmpty(foodName) || string.IsNullOrEmpty(calories) || string.IsNullOrEmpty(mass) || 
+           string.IsNullOrEmpty(protein) || string.IsNullOrEmpty(fat) || string.IsNullOrEmpty(carbohydrates))
+            return RedirectToAction("Food_Add", "Home", new { username });
+
+        if (!decimal.TryParse(calories.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out caloriesNumber) ||
+            !decimal.TryParse(mass.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out massNumber) ||
+            !decimal.TryParse(protein.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out proteinNumber) ||
+            !decimal.TryParse(fat.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out fatNumber) ||
+            !decimal.TryParse(carbohydrates.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out carbohydratesNumber)) 
+            return RedirectToAction("Food_Add", "Home", new { username });
+
         var newFood = new Food
         {
             Name = foodName,
-            Calories = calories * 100 / mass,
-            Protein = protein * 100 / mass,
-            Fat = fat * 100 / mass,
-            Carbohydrates = carbohydrates * 100 / mass
+            Calories = caloriesNumber * 100m / massNumber,
+            Protein = proteinNumber * 100m / massNumber,
+            Fat = fatNumber * 100m / massNumber,
+            Carbohydrates = carbohydratesNumber * 100m / massNumber
         };
 
         _context.UserFood.Add(newFood);
