@@ -14,8 +14,9 @@
                 <button type="button" class="btn-custom">Завтра</button>
             </div>
         </div>
-
-        <button type="button" class="btn-custom" onclick="addExercise()">Добавить прием пищи</button>
+        <form asp-controller="Nutrition" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+            <button type="submit" class="btn-custom-center" onclick="addExercise()">Добавить прием пищи</button>
+        </form>
     </div>
 
    

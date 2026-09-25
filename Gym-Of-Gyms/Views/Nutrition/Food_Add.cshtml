@@ -18,6 +18,8 @@
                 <tr>
                     <td><input type="text" id="foodName" class="styled-input" name="foodName" /></td>
                 </tr>
+            </table>
+            <table class="form-table">
                 <tr>
                     <td><label for="calories">Введи калории (ккал.)</label></td>
                     <td><label for="mass">Введи массу на которую прихоятся эти калории (г.)</label></td>
@@ -26,6 +28,8 @@
                     <td><input type="text" class="styled-input inp-weight" placeholder="0.00" id="calories" name="calories" /></td>
                     <td><input type="text" class="styled-input inp-weight" placeholder="0.00" id="mass" name="mass" /></td>
                 </tr>
+            </table>
+            <table class="form-table">
                 <tr>
                     <td><label for="protein">Введи количество белков (г.)</label></td>
                     <td><label for="fat">Введи количество жиров (г.)</label></td>
@@ -44,7 +48,7 @@
         </form>
 
         <p>
-            <a asp-controller="Home" asp-action="Food_List" asp-route-username="@currentUsername">
+            <a asp-controller="Nutrition" asp-action="Food_List" asp-route-username="@currentUsername">
                 Кажется.. Я передумал добавлять новый продукт...
             </a>
         </p>

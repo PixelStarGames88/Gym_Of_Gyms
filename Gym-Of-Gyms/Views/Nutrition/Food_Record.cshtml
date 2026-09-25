@@ -1,0 +1,75 @@
+﻿@model Gym_Of_Gyms.Models.Food
+
+@{
+    ViewData["Title"] = "Запись еды";
+}
+<div class="page-split">
+    <div class="bg-panel panel-diary-food-left"></div>
+
+    <div class="container-main center-wide">
+        @if (Model == null)
+        {
+                <p style="text-align: center;">Ошибка добавления!</p>
+        }
+        else
+        {
+            <form asp-controller="Nutrition"
+                  asp-action="Food_Record_Save" 
+                  asp-route-username="@ViewContext.RouteData.Values["username"]" 
+                  method="post">
+                <input type="hidden" name="food_Id" value="@Model.Food_Id" />
+
+                <table class="form-table">
+                    <tr>
+                        <td><h3>@Model.Name</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- Храним исходное значение на 100г в data-base-val -->
+                            <p>Энергетическая ценность: <span id="val-calories" data-base-val="@Model.Calories">@Model.Calories</span> Ккал.</p>
+                        </td>
+                    </tr>
+                </table>
+                <table class="form-table">
+                    <tr>
+                        <td><p>Белки: <span id="val-protein" data-base-val="@Model.Protein">@Model.Protein</span> г.</p></td>
+                        <td><p>Жиры: <span id="val-fat" data-base-val="@Model.Fat">@Model.Fat</span> г.</p></td>
+                        <td><p>Углеводы: <span id="val-carbs" data-base-val="@Model.Carbohydrates">@Model.Carbohydrates</span> г.</p></td>
+                    </tr>
+                </table>
+                <table class="form-table">
+                    <tr>
+                        <td><label for="mass-food">Введи массу (в граммах)</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" inputmode="decimal" id="mass-food" class="styled-input" name="mass-food" placeholder="0.0" value="100.0" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+                <table class="form-table">
+                        <tr>
+                            <td>
+                        <form asp-controller="Nutrition" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                                    <button type="submit" class="btn-custom-center">Добавить</button>
+                                </form>
+                            </td>
+                        <td>
+                        <form asp-controller="Nutrition" asp-action="Food_Add" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                                <button type="submit" class="btn-custom-center" margin-left: 10px>Редактировать продукт</button>
+                            </form>
+                        </td>
+                        <td>
+                        <form asp-controller="Nutrition" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                                <button type="submit" class="btn-custom-center" margin-left: 10px>Отмена</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+        }
+    </div>
+
+    <div class="bg-panel panel-diary-food-right"></div>
+</div>
+<script src="~/js/food-adding.js"></script>

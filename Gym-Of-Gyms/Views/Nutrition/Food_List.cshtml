@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Gym_Of_Gyms.Models.Food>
+
+@{
+    ViewData["Title"] = "Добавить еду";
+}
+<div class="page-split">
+    <div class="bg-panel panel-diary-food-left"></div>
+
+    <div class="container-main center-wide">
+        <h1 style="text-align: center;">Список еды.</h1>
+        <div class="container-list">
+            @if (Model == null || !Model.Any())
+            {
+                <p style="text-align: center;">Список продуктов пока пуст. Добавь первый продукт!</p>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <form asp-controller="Nutrition" asp-action="Food_Record" asp-route-username="@ViewContext.RouteData.Values["username"]"
+                          asp-route-food_Id="@item.Food_Id"
+                          method="get">
+                        <input type="hidden" name="food_Id" value="@item.Food_Id" />
+                        <button type="submit" class="btn-object">
+                            <h3>@item.Name</h3>
+                            <p>КБЖУ на 100 г.:</p>
+                            <p>Энергетическая ценность <strong>@item.Calories.ToString("F1")</strong> ккал </p>
+                            <p>
+                                Белки: <strong>@item.Protein.ToString("F1")</strong>г.
+                            </p>
+                            <p>
+                                Жиры: <strong>@item.Fat.ToString("F1")</strong>г.
+                            </p>
+                            <p>
+                                Углеводы: <strong>@item.Carbohydrates.ToString("F1")</strong>г.
+                            </p>
+                    </button>
+                </form>
+                }
+            }
+        </div>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 5px;">
+            <form asp-controller="Nutrition" asp-action="Food_Add" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                <button type="submit" class="btn-custom-center">Добавить новоую еду</button>
+            </form>
+            <form asp-controller="Nutrition" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                <button type="submit" class="btn-custom-center" margin-left: 10px>Отмена</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="bg-panel panel-diary-food-right"></div>
+</div>

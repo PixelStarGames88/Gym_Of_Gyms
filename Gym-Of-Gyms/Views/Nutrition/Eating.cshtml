@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Прием пищи";
+}
+
+<div class="page-split">
+    <div class="bg-panel panel-diary-food-left"></div>
+
+    <div class="container-main center-wide">
+        <h1 style="text-align: center;">Прием пищи.</h1>
+        <label for="eating-name">Введи название</label>
+            <input type="text" id="eating-name" class="styled-input" name="eating-name" />
+            <label for="foodTime">Укажи время</label>
+            <input type="time" id="eating-time" class="styled-input time-input inp-time" />
+
+            
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 5px;">
+            <form asp-controller="Nutrition" asp-action="Food_List" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                <button type="submit" class="btn-custom-center">Добавить еду</button>
+            </form>
+            <form asp-controller="Nutrition" asp-action="Eating_Day" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+                <button type="submit" class="btn-custom-center" margin-left: 10px>Обратно</button>
+            </form>
+        </div>
+    </div>
+    <div class="bg-panel panel-diary-food-right"></div>
+</div>
+
+<script src="~/js/food-record-auto-fill.js"></script>

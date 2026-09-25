@@ -110,3 +110,26 @@ body {
 .btn-custom-center {
     margin-top: 10px;
 }
+
+.btn-object {
+    background-color: #ffffff;
+    color: #000000;
+    border: dotted;
+    font-size: 18px;
+    font-family: 'Impact', sans-serif;
+    padding: 14px 28px;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+}
+
+    .btn-object:hover {
+        background-color: #ffffff;
+    }
+
+    .btn-object:active {
+        transform: scale(0.98);
+    }

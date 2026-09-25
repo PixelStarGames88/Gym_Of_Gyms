@@ -1,10 +1,19 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Gym_Of_Gyms.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gym_Of_Gyms.Controllers;
 
 public class HomeController : Controller
 {
+    readonly ApplicationDbContext _context;
+
+    public HomeController(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
     [AllowAnonymous]
     public IActionResult Autorisation()
     {
@@ -22,24 +31,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    [Authorize]
-    [HttpGet("home/{username}/eating")]
-    public IActionResult Eating(string username)
-    {
-        return View();
-    }
-    [Authorize]
-    [HttpGet("home/{username}/eating/food-list")]
-    public IActionResult Food_List(string username)
-    {
-        return View();
-    }
-    [Authorize]
-    [HttpGet("home/{username}/eating/food-add")]
-    public IActionResult Food_Add(string username)
-    {
-        return View();
-    }
+    
     [AllowAnonymous]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(int? id = null)

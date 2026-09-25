@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Gym_Of_Gyms.Views.Home
+namespace Gym_Of_Gyms.Views.Nutrition
 {
-    public class Food2Model : PageModel
+    public class EatingDayModel : PageModel
     {
         public void OnGet()
         {

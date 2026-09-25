@@ -34,8 +34,8 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "Home/{username}/Workout",
-    defaults: new { controller = "Home", action = "Workout" });
+    pattern: "Nutrition/{username}/Eating-Day",
+    defaults: new { controller = "Nutrition", action = "Eating-Day" });
 
 app.MapControllerRoute(
     name: "login",
