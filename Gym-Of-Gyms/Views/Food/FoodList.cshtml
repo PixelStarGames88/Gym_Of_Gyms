@@ -43,7 +43,7 @@
             <form asp-controller="Nutrition" asp-action="Food_Add" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
                 <button type="submit" class="btn-custom-center">Добавить новоую еду</button>
             </form>
-            <form asp-controller="Nutrition" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
+            <form asp-controller="Eating" asp-action="Eating" asp-route-username="@ViewContext.RouteData.Values["username"]" method="get">
                 <button type="submit" class="btn-custom-center" margin-left: 10px>Отмена</button>
             </form>
         </div>

@@ -22,7 +22,7 @@ function toggleCard(buttonElement) {
     card.style.display = isHidden ? 'block' : 'none';
 
 
-    buttonElement.textContent = isHidden ? '▼' : '►';
+    buttonElement.textContent = isHidden ? '▼' : '◄';
 }
 //*
 // 2. Добавление нового подхода в таблицу

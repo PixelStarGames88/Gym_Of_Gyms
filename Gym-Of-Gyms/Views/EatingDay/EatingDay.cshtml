@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Дневник питания";
+    
+    DateTime currentDate = DateTime.ParseExact((string)ViewData["DateStr"]!, "ddMMyyyy", null);
+
+    string prevDay = currentDate.AddDays(-1).ToString("ddMMyyyy");
+    string nextDay = currentDate.AddDays(1).ToString("ddMMyyyy");
+}
+
+<div class="page-split">
+    <div class="bg-panel panel-diary-food-left"></div>
+
+    <div class="container-main center-wide">
+        <h1 style="text-align: center;">Дневник питания.</h1>
+        
+                <div class="exercise-container">
+                    <div class="date-navigation" style="display: flex; justify-content: space-between; align-items: center;">
+                        <form asp-controller="EatingDay"
+                           asp-action="EatingDay"
+                           asp-route-username="@ViewContext.RouteData.Values["username"]"
+                           asp-route-dateStr="@prevDay"
+                           method="get">
+                            <button type="submit" class="btn-custom-center">
+                                Вчера
+                            </button>
+                        </form>
+
+                        <h2>@ViewData["SelectedDate"]</h2>
+
+                        <form asp-controller="EatingDay"
+                              asp-action="EatingDay"
+                              asp-route-username="@ViewContext.RouteData.Values["username"]"
+                              asp-route-dateStr="@nextDay"
+                              method="get">
+                            <button type="submit" class="btn-custom-center">
+                                Завтра
+                            </button>
+                       </form>
+                    </div>
+                </div>
+        <form asp-controller="Eating" asp-action="SaveDay"
+              asp-route-username="@ViewContext.RouteData.Values["username"]"
+              asp-route-dayid="@ViewContext.RouteData.Values["DateStr"]"
+              asp-route-daydata="@ViewContext.RouteData.Values["SelectedDate"]"
+              method="post">
+            <button type="submit" class="btn-custom-center">Добавить прием пищи</button>
+        </form>
+    </div>
+
+    <div class="bg-panel panel-diary-food-right"></div>
+</div>
+
+<script src="~/js/food-diary.js"></script>

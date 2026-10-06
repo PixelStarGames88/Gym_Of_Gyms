@@ -9,7 +9,7 @@
     <div class="container-main center-wide">
         @if (Model == null)
         {
-                <p style="text-align: center;">Ошибка добавления!</p>
+            <p style="text-align: center;">Ошибка добавления!</p>
         }
         else
         {
@@ -25,7 +25,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <!-- Храним исходное значение на 100г в data-base-val -->
                             <p>Энергетическая ценность: <span id="val-calories" data-base-val="@Model.Calories">@Model.Calories</span> Ккал.</p>
                         </td>
                     </tr>

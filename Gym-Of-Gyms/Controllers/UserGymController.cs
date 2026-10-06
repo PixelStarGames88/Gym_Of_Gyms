@@ -39,7 +39,8 @@ public class UserGymController : Controller
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
-            return RedirectToAction("Eating_Day", "Nutrition", new { username = user.UserName });
+            string todayFormatted = DateTime.Now.ToString("ddMMyyyy");
+            return RedirectToAction("Eating_Day", "EatingDay", new { username = login, dateStr = todayFormatted });
         }
         else
         {
@@ -62,7 +63,8 @@ public class UserGymController : Controller
 
         if (result.Succeeded)
         {
-            return RedirectToAction("Eating_Day", "Nutrition", new { username = login });
+            string todayFormatted = DateTime.Now.ToString("ddMMyyyy");
+            return RedirectToAction("EatingDay", "EatingDay", new { username = login, dateStr = todayFormatted });
         }
         else
         {

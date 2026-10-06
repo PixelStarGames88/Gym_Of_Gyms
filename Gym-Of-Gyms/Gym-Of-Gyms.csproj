@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Gym_Of_Gyms</RootNamespace>
+    <UserSecretsId>94c3f37c-cc0b-45e2-a544-9bc51a0151ea</UserSecretsId>
   </PropertyGroup>
   
   <ItemGroup>

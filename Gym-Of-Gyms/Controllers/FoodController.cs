@@ -1,9 +1,12 @@
 ﻿using Gym_Of_Gyms.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gym_Of_Gyms.Controllers;
 
+[Authorize]
+[Route("food/{username}")]
 public class FoodController : Controller
 {
     readonly ApplicationDbContext _context;
@@ -12,13 +15,12 @@ public class FoodController : Controller
     {
         _context = context;
     }
-    [Authorize]
-    [HttpPost("nutrition/{username}/eating-day/food-add")]
+    [HttpPost]
     public async Task<IActionResult> CreateFood(string username, string foodName, string calories, string mass, string protein, string fat, string carbohydrates)
     {
         decimal caloriesNumber, massNumber, proteinNumber, fatNumber, carbohydratesNumber;
 
-        if(string.IsNullOrEmpty(foodName) || string.IsNullOrEmpty(calories) || string.IsNullOrEmpty(mass) || 
+        if (string.IsNullOrEmpty(foodName) || string.IsNullOrEmpty(calories) || string.IsNullOrEmpty(mass) ||
            string.IsNullOrEmpty(protein) || string.IsNullOrEmpty(fat) || string.IsNullOrEmpty(carbohydrates))
             return RedirectToAction("Food_Add", "Nutrition", new { username });
 
@@ -26,7 +28,7 @@ public class FoodController : Controller
             !decimal.TryParse(mass.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out massNumber) ||
             !decimal.TryParse(protein.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out proteinNumber) ||
             !decimal.TryParse(fat.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out fatNumber) ||
-            !decimal.TryParse(carbohydrates.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out carbohydratesNumber)) 
+            !decimal.TryParse(carbohydrates.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture, out carbohydratesNumber))
             return RedirectToAction("Food_Add", "Nutrition", new { username });
 
         var newFood = new Food
@@ -42,5 +44,11 @@ public class FoodController : Controller
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Food_List", "Nutrition", new { username });
+    }
+    [HttpGet("food-list")]
+    public async Task<IActionResult> FoodList(string username)
+    {
+        var foodList = await _context.UserFood.ToListAsync();
+        return View(foodList);
     }
 }
